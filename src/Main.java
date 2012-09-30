@@ -24,7 +24,7 @@ public class Main {
 
         System.out.println("Total calls: " + testObjectFactory.totalCalls());
         System.out.println("Mismatches number: " + testObjectFactory.getMismatches().size());
-        for (TestObjectFactory.Mismatch mismatch : testObjectFactory.getMismatches()) {
+        for (TestObjectFactory.Mismatch<Integer, Employee> mismatch : testObjectFactory.getMismatches()) {
             System.out.println(mismatch);
         }
     }
