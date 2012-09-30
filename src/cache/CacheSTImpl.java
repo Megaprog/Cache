@@ -10,8 +10,8 @@ import java.util.*;
 
 public class CacheSTImpl<K, V> implements Cache<K, V> {
 
-    protected List<Measure> measuresList = createMeasuresList();
-    protected Map<K, Measure> measuresMap = createMeasuresMap();
+    protected List<Measure<K>> measuresList = createMeasuresList();
+    protected Map<K, Measure<K>> measuresMap = createMeasuresMap();
 
     protected CacheStore<K> store;
     protected CacheAlgorithm algorithm;
@@ -101,28 +101,28 @@ public class CacheSTImpl<K, V> implements Cache<K, V> {
     }
 
     protected void applyAlgorithm(K key) {
-        Measure measure = measuresMap.get(key);
+        Measure<K> measure = measuresMap.get(key);
         if (measure == null) {
-            measure = new Measure(key);
+            measure = new Measure<>(key);
             measuresMap.put(key, measure);
             measuresList.add(measure);
         }
         measure.meter = algorithm.calcMeter(measure.meter);
     }
 
-    protected List<Measure> createMeasuresList() {
+    protected List<Measure<K>> createMeasuresList() {
         return new ArrayList<>();
     }
 
-    protected Map<K, Measure> createMeasuresMap() {
+    protected Map<K, Measure<K>> createMeasuresMap() {
         return new HashMap<>();
     }
 
-    protected class Measure {
-        public K key;
+    protected static class Measure<T> {
+        public T key;
         public long meter;
 
-        public Measure(K key) {
+        public Measure(T key) {
             this.key = key;
         }
     }

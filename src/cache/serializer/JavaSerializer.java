@@ -19,6 +19,7 @@ public class JavaSerializer<T> implements ObjectSerializer<T> {
         }
     }
 
+    @SuppressWarnings("unchecked")
     public T deSerializeObject(InputStream is) {
         T res = null;
         try (ObjectInputStream ois = new ObjectInputStream(is)) {

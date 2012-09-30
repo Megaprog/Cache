@@ -35,12 +35,12 @@ public class MemoryStore<K> implements CacheStore<K> {
     }
 
     @Override
-    public boolean contains(Object key) {
+    public boolean contains(K key) {
         return data.containsKey(key);
     }
 
     @Override
-    public void remove(Object key) {
+    public void remove(K key) {
         data.remove(key);
     }
 

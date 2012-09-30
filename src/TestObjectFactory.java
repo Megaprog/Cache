@@ -71,12 +71,12 @@ public class TestObjectFactory<K, V> implements Runnable {
         return mismatches;
     }
 
-    public static class Mismatch<K, V> {
-        public K key;
-        public V etalonValue;
-        public V testedValue;
+    public static class Mismatch<A, B> {
+        public A key;
+        public B etalonValue;
+        public B testedValue;
 
-        public Mismatch(K key, V etalonValue, V testedValue) {
+        public Mismatch(A key, B etalonValue, B testedValue) {
             this.key = key;
             this.etalonValue = etalonValue;
             this.testedValue = testedValue;

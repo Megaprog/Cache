@@ -49,12 +49,12 @@ public class RandomEmployeeFactory implements ObjectFactory<Integer, Employee>, 
     }
 
     protected Employee createRandomEmployee(Integer key) {
-        String name = generateRandomName(minNameLen, maxNameLen);
+        String name = generateRandomName();
         return new Employee(key, name);
     }
 
-    protected String generateRandomName(int minLen, int maxLen) {
-        int len = minLen + random.nextInt(maxLen - minLen + 1);
+    protected String generateRandomName() {
+        int len = minNameLen + random.nextInt(maxNameLen - minNameLen + 1);
         StringBuilder sb = new StringBuilder(len);
         sb.append(Character.toUpperCase(generateRandomAlphaChar()));
         for (int i = 2; i <= len; i++) {
