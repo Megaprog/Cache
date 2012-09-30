@@ -7,7 +7,7 @@ import org.springframework.context.support.FileSystemXmlApplicationContext;
 
 public class Main {
 
-    public static String CONFIGFILENAME = "config.xml";
+    public static String CONFIGFILENAME = "cache.xml";
 
     public static void main(String[] args) {
         //Check config file name command line argument
