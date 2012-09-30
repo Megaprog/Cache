@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="testObjectFactory" class="TestObjectFactory">
+        <constructor-arg ref="firstLevelCache"/>
+        <constructor-arg ref="employeeFactory"/>
+        <constructor-arg ref="employeeFactory"/>
+        <constructor-arg value="10000"/>
+        <constructor-arg value="4"/>
+    </bean>
+
+    <bean id="firstLevelCache" class="cache.CacheMTImpl">
+        <constructor-arg ref="memoryStore"/>
+        <constructor-arg ref="LFU"/>
+        <constructor-arg ref="serializer"/>
+        <constructor-arg ref="secondLevelCache"/>
+        <constructor-arg value="100"/>
+        <constructor-arg value="10"/>
+    </bean>
+    <bean id="memoryStore" class="cache.store.MemoryStore" />
+    <bean id="LFU" class="cache.algorithm.LFUAlgorithm"/>
+
+    <bean id="secondLevelCache" class="cache.CacheMTImpl">
+        <constructor-arg ref="fileStore"/>
+        <constructor-arg ref="LRU"/>
+        <constructor-arg ref="serializer"/>
+        <constructor-arg ref="employeeFactory"/>
+        <constructor-arg value="1000"/>
+        <constructor-arg value="100"/>
+    </bean>
+    <bean id="fileStore" class="cache.store.FileStore">
+        <constructor-arg value="cache"/>
+        <constructor-arg ref="keyConverter"/>
+    </bean>
+    <bean id="keyConverter" class="KeyConverterIntStr"/>
+    <bean id="LRU" class="cache.algorithm.LRUAlgorithm"/>
+
+    <bean id="employeeFactory" class="RandomEmployeeFactory">
+        <constructor-arg value="999999999"/>
+        <constructor-arg value="10000"/>
+    </bean>
+
+    <bean id="serializer" class="cache.serializer.JavaSerializer"/>
+
+</beans>

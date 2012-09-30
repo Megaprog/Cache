@@ -1,0 +1,8 @@
+"Create a configurable two-level cache (for caching Objects).
+Level 1 is memory, level 2 is filesystem.
+Config params should let one specify the  cache strategies and max sizes of level  1 and 2."
+
+Least Recently Used (LRU): в первую очередь, вытесняется неиспользованный дольше всех.
+
+Least Frequently Used (LFU): LFU подсчитывает как часто используется элемент.
+Те элементы, обращения к которым происходят реже всего, вытесняются в первую очередь.
