@@ -12,8 +12,8 @@ import java.util.List;
 /**
  * Class for testing {@link ObjectFactory} implementations by compare values from tested
  * and etalon implementations.
- * @param <K> key type
- * @param <V> value type
+ * @param <K> type of the key
+ * @param <V> type of the value
  */
 public class TestObjectFactory<K, V> implements Runnable {
 

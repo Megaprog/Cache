@@ -4,6 +4,12 @@
 
 package cache;
 
+/**
+ * Implements multi threaded version of {@link Cache}
+ * by simply synchronization of method inherited from {@link CacheSTImpl}
+ * @param <K> type of the key
+ * @param <V> type of the value
+ */
 public class CacheMTImpl<K, V> extends CacheSTImpl<K, V> {
 
     public CacheMTImpl(CacheStore<K> store, CacheAlgorithm algorithm, ObjectSerializer<V> serializer, ObjectFactory<K, V> objectFactory,

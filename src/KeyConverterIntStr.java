@@ -5,7 +5,7 @@
 import cache.store.KeyConverter;
 
 /**
- * Converts Integer to String and vise versa
+ * Converts Integer to String and vise versa.
  */
 public class KeyConverterIntStr implements KeyConverter<Integer, String> {
 
