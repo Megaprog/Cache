@@ -6,6 +6,10 @@ package cache.algorithm;
 
 import cache.CacheAlgorithm;
 
+/**
+ * Implementation of Least Recently Used (LRU) cache algorithm.
+ * Sets current time as algorithm meter.
+ */
 public class LRUAlgorithm implements CacheAlgorithm {
 
     @Override

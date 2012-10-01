@@ -6,6 +6,10 @@ package cache.algorithm;
 
 import cache.CacheAlgorithm;
 
+/**
+ * Implementation of Least Frequently Used (LFU) cache algorithm.
+ * Sets number of applying as algorithm meter.
+ */
 public class LFUAlgorithm implements CacheAlgorithm {
 
     @Override

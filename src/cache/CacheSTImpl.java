@@ -8,6 +8,12 @@ import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.util.*;
 
+/**
+ * Single threaded implementation of {@link Cache}.
+ * Requires "Strategies": {@link CacheStore}, {@link CacheAlgorithm}, {@link ObjectSerializer}, {@link ObjectFactory}
+ * @param <K> type of the key
+ * @param <V> type of the value
+ */
 public class CacheSTImpl<K, V> implements Cache<K, V> {
 
     protected List<Measure<K>> measuresList = createMeasuresList();
@@ -17,9 +23,21 @@ public class CacheSTImpl<K, V> implements Cache<K, V> {
     protected CacheAlgorithm algorithm;
     protected ObjectSerializer<V> serializer;
     protected ObjectFactory<K, V> objectFactory;
-    protected final int cacheMaxElements;
-    protected final int removeAtOnce;
+    protected int cacheMaxElements;
+    protected int removeAtOnce;
 
+    /**
+     * Creates instance of Cache.
+     * @param store implements {@link CacheStore} strategy.
+     * @param algorithm implements {@link CacheAlgorithm} elements displacement strategy.
+     * @param serializer implements {@link ObjectSerializer} strategy.
+     * @param objectFactory implements {@link ObjectFactory} strategy.
+     * @param cacheMaxElements max number elements in cache.
+     * If number of elements exceed this parameter some elements
+     * in quantities of removeAtOnce parameter will be removed by algorithm.
+     * @param removeAtOnce number elements which will be removed if total number elements
+     * in cache exceed cacheMaxElements parameter.
+     */
     public CacheSTImpl(CacheStore<K> store, CacheAlgorithm algorithm, ObjectSerializer<V> serializer, ObjectFactory<K, V> objectFactory,
                        int cacheMaxElements, int removeAtOnce) {
         this.store = store;

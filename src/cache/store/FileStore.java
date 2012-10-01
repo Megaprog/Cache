@@ -15,12 +15,23 @@ import java.util.Collection;
 import java.util.HashSet;
 import java.util.Set;
 
+/**
+ * Implements {@link CacheStore} by storing byte arrays in file system.
+ * Used {@link KeyConverter} to convert key to/from String and makes file name from it string.
+ * @param <K> type of the key
+ */
 public class FileStore<K> implements CacheStore<K> {
 
     protected Path dir;
     protected Set<K> keys = createSet();
     private KeyConverter<K, String> converter;
 
+    /**
+     * Creates new instance of {@link FileStore}.
+     * @param workingDir name of the directory where byte arrays will be stored. Can be absolute or relative.
+     * @param converter implements {@link KeyConverter} stategy to convert key to/from String and makes file name from it.
+     * @throws IOException
+     */
     public FileStore(String workingDir, KeyConverter<K, String> converter) throws IOException {
         this.dir = Paths.get(workingDir);
         this.converter = converter;

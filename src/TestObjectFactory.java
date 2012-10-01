@@ -9,6 +9,12 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
+/**
+ * Class for testing {@link ObjectFactory} implementations by compare values from tested
+ * and etalon implementations.
+ * @param <K> type of the key
+ * @param <V> type of the value
+ */
 public class TestObjectFactory<K, V> implements Runnable {
 
     protected ObjectFactory<K, V> testedFactory;

@@ -10,6 +10,10 @@ import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * Implements {@link CacheStore} by storing byte arrays in memory
+ * @param <K> type of the key
+ */
 public class MemoryStore<K> implements CacheStore<K> {
 
     protected Map<K, byte[]> data = createMap();

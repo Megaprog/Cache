@@ -6,6 +6,9 @@ import java.io.Serializable;
 
 /**
  * Class for testing Cache.
+ * An employee has number and name, equals method overridden to check number and name equality,
+ * implements {@link Serializable} to use standard Java serialization.
+ *
  */
 public class Employee implements Serializable {
 
