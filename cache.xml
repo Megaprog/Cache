@@ -13,7 +13,7 @@
 
     <bean id="firstLevelCache" class="cache.CacheMTImpl">
         <constructor-arg ref="memoryStore"/>
-        <constructor-arg ref="LFU"/>
+        <constructor-arg ref="LRU"/>
         <constructor-arg ref="serializer"/>
         <constructor-arg ref="secondLevelCache"/>
         <constructor-arg value="100"/>
@@ -24,7 +24,7 @@
 
     <bean id="secondLevelCache" class="cache.CacheMTImpl">
         <constructor-arg ref="fileStore"/>
-        <constructor-arg ref="LRU"/>
+        <constructor-arg ref="LFU"/>
         <constructor-arg ref="serializer"/>
         <constructor-arg ref="employeeFactory"/>
         <constructor-arg value="1000"/>
