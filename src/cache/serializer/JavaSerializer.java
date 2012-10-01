@@ -8,6 +8,10 @@ import cache.ObjectSerializer;
 
 import java.io.*;
 
+/**
+ * Implementation of {@link ObjectSerializer} which uses standard Java serialization.
+ * @param <T> type of serialized object.
+ */
 public class JavaSerializer<T> implements ObjectSerializer<T> {
 
     public void serializeObject(T object, OutputStream os) {
