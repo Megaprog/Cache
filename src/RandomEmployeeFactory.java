@@ -7,6 +7,10 @@ import cache.ObjectFactory;
 
 import java.util.*;
 
+/**
+ * The factory which generates random Employees.
+ * Also implements {@link KeyGenerator} for {@link TestObjectFactory}.
+ */
 public class RandomEmployeeFactory implements ObjectFactory<Integer, Employee>, KeyGenerator<Integer> {
 
     private static final String nameCharacters = "abcdefghijklmnopqrstuvwxyz";

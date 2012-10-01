@@ -5,6 +5,9 @@
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.FileSystemXmlApplicationContext;
 
+/**
+ * Runs test.
+ */
 public class Main {
 
     public static String CONFIGFILENAME = "cache.xml";
