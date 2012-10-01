@@ -29,7 +29,7 @@ public class CacheSTImpl<K, V> implements Cache<K, V> {
     /**
      * Creates instance of Cache.
      * @param store implements {@link CacheStore} strategy.
-     * @param algorithm implements {@link CacheAlgorithm} strategy.
+     * @param algorithm implements {@link CacheAlgorithm} elements displacement strategy.
      * @param serializer implements {@link ObjectSerializer} strategy.
      * @param objectFactory implements {@link ObjectFactory} strategy.
      * @param cacheMaxElements max number elements in cache.

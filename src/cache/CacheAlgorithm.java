@@ -5,7 +5,7 @@
 package cache;
 
 /**
- * Algorithm for {@link Cache}.
+ * Algorithm of elements displacement for {@link Cache}.
  * Gets old meter and return a new one
  */
 public interface CacheAlgorithm {
